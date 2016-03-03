@@ -16,3 +16,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:sec_company_filings_rss_feed_parser]]
         end
 
+## License
+
+This library is under the MIT [license](LICENSE.md).
