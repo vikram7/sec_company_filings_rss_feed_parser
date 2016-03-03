@@ -5,28 +5,32 @@ defmodule SecCompanyFilingsRssFeedParser.Mixfile do
     [app: :sec_company_filings_rss_feed_parser,
      version: "0.0.1",
      elixir: "~> 1.2",
+     description: description,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     package: package,
      deps: deps]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:floki, :logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:floki, "~> 0.7.1"}]
+  end
+
+  defp description do
+    """
+    XML Parser for a Company's SEC Filings Feed
+    An example of such a feed can be found here:
+    https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001418091&CIK=0001418091&type=&dateb=&owner=exclude&start=0&count=40&output=atom
+    """
+  end
+
+  defp package do
+    [maintainers: ["Vikram Ramakrishnan"],
+      licenses: ["MIT"],
+      links: %{"Github" => "https://github.com/vikram7/sec_company_filings_rss_feed_parser"}]
   end
 end
