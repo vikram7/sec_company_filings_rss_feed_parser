@@ -102,7 +102,8 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
     assert feed == %{
       updated: "2016-03-03T18:20:09-05:00",
       title: "TWITTER, INC.  (0001418091)",
-      feed_id: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001418091",
+      author_email: "webmaster@sec.gov",
+      author_name: "Webmaster",
       entries: [
         %{},
         %{}
