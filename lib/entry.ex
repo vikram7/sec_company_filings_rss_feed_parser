@@ -57,10 +57,8 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   end
 
   defp parse_summary(xml) do
-    xml
-    |> Floki.find("summary")
-    |> hd
-    |> extract_last_item
+    {_, _, summary} = xml |> Floki.find("summary") |> hd
+    Floki.raw_html(summary)
   end
 
   defp parse_link(xml) do

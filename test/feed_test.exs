@@ -102,13 +102,71 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
       title: "TWITTER, INC.  (0001418091)",
       author_email: "webmaster@sec.gov",
       author_name: "Webmaster",
-      entries: [
-        %{
-        },
-        %{
-        }
-      ],
-      company_info: %{
+      entries:
+        [
+          %{
+            accession_nunber: "0001564590-16-013773",
+            act: "33",
+            category_term: "S-8",
+            file_number: "333-209840",
+            file_number_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&filenum=333-209840&owner=exclude&count=40",
+            filing_date: "2016-03-01",
+            filing_type: "S-8",
+            film_number: "161470856",
+            form_name: "Securities to be offered to employees in employee benefit plans",
+            link: "http://www.sec.gov/Archives/edgar/data/1418091/000156459016013773/0001564590-16-013773-index.htm",
+            rss_feed_id: "urn:tag:sec.gov,2008:accession-number=0001564590-16-013773",
+            size: "146 KB",
+            summary: "<b>Filed:</b> 2016-03-01 <b>AccNo:</b> 0001564590-16-013773 <b>Size:</b> 146 KB",
+            title: "S-8  - Securities to be offered to employees in employee benefit plans",
+            updated: "2016-03-01T06:02:42-05:00"
+          },
+          %{
+            accession_nunber: "0001564590-16-013646",
+            act: "34",
+            category_term: "10-K",
+            file_number: "001-36164",
+            file_number_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&filenum=001-36164&owner=exclude&count=40", 
+            filing_date: "2016-02-29",
+            filing_type: "10-K",
+            film_number: "161464790",
+            form_name: "Annual report [Section 13 and 15(d), not S-K Item 405]",
+            link: "http://www.sec.gov/Archives/edgar/data/1418091/000156459016013646/0001564590-16-013646-index.htm",
+            rss_feed_id: "urn:tag:sec.gov,2008:accession-number=0001564590-16-013646",
+            size: "15 MB",
+            summary: "<b>Filed:</b> 2016-02-29 <b>AccNo:</b> 0001564590-16-013646 <b>Size:</b> 15 MB",
+            title: "10-K  - Annual report [Section 13 and 15(d), not S-K Item 405]",
+            updated: "2016-02-29T07:01:57-05:00"
+          }
+        ],
+        company_info: %{
+        addresses: [
+          %{
+            city: "San Francisco",
+            state: "CA",
+            street: "1355 MARKET STREET, SUITE 900",
+            type: "mailing",
+            zip: "94103"
+          },
+          %{
+            city: "San Francisco",
+            phone: "(415) 222-9670",
+            state: "CA",
+            street: "1355 MARKET STREET, SUITE 900",
+            type: "business", zip: "94103"
+          }
+        ],
+        assigned_sic: "7370",
+        assigned_sic_desc: "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        assigned_sic_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=7370&owner=exclude&count=40",
+        assitant_director: "3",
+        cik: "0001418091",
+        cik_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001418091&owner=exclude&count=40",
+        conformed_name: "TWITTER, INC.",
+        fiscal_year_end: "1231",
+        state_location: "CA",
+        state_location_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&State=CA&owner=exclude&count=40",
+        state_of_incorporation: "DE"
       }
     }
   end
