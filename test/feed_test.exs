@@ -1,8 +1,6 @@
 defmodule SecCompanyFilingsRssFeedParserFeedTest do
   use ExUnit.Case
 
-  import SecCompanyFilingsRssFeedParser.Feed
-
   def feed_xml do
     """
     <?xml version="1.0" encoding="ISO-8859-1" ?>
@@ -105,9 +103,13 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
       author_email: "webmaster@sec.gov",
       author_name: "Webmaster",
       entries: [
-        %{},
-        %{}
-      ]
+        %{
+        },
+        %{
+        }
+      ],
+      company_info: %{
+      }
     }
   end
 end

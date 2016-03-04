@@ -6,7 +6,8 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
       title: parse_title(xml),
       author_name: parse_author_name(xml),
       author_email: parse_author_email(xml),
-      entries: parse_feed(xml)
+      entries: parse_feed(xml),
+      company_info: parse_company_info(xml)
     }
   end
 
@@ -16,6 +17,9 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
   end
 
   defp parse_feed(xml) do
+  end
+
+  defp parse_company_info(xml) do
   end
 
   defp parse_updated(feed) do
