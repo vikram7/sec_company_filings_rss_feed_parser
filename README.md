@@ -1,5 +1,7 @@
 # SecCompanyFilingsRssFeedParser
 
+[![Circle CI](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser.svg?style=svg)](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
