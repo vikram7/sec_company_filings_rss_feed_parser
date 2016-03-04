@@ -49,12 +49,12 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
 
   test "parses assigned-sic-desc" do
     company_info = company_info_xml |> parse
-    assert company_info.assigned_sic_info == "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC."
+    assert company_info.assigned_sic_desc == "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC."
   end
 
   test "parses assigned-sic-href" do
     company_info = company_info_xml |> parse
-    assert company_info.assigned_sic_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=7370&amp;owner=exclude&amp;count=40"
+    assert company_info.assigned_sic_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=7370&owner=exclude&count=40"
   end
 
   test "parses assitant director" do
@@ -69,7 +69,7 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
 
   test "parses cik-href" do
     company_info = company_info_xml |> parse
-    assert company_info.cik_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001418091&amp;owner=exclude&amp;count=40"
+    assert company_info.cik_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001418091&owner=exclude&count=40"
   end
 
   test "parses conformed-name" do
@@ -82,7 +82,6 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
     assert company_info.fiscal_year_end == "1231"
   end
 
-
   test "parses state-location" do
     company_info = company_info_xml |> parse
     assert company_info.state_location == "CA"
@@ -90,12 +89,12 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
 
   test "parses state-location-href" do
     company_info = company_info_xml |> parse
-    assert company_info.state_location_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;State=CA&amp;owner=exclude&amp;count=40"
+    assert company_info.state_location_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&State=CA&owner=exclude&count=40"
   end
 
   test "parses state-of-incorporation" do
     company_info = company_info_xml |> parse
-    company_info.state_of_incorporation == "DE"
+    assert company_info.state_of_incorporation == "DE"
   end
 
   test "parses addresses" do
@@ -106,7 +105,7 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
           type: "mailing",
           city: "San Francisco",
           state: "CA",
-          street1: "1335 MARKET STREET, SUITE 900",
+          street: "1355 MARKET STREET, SUITE 900",
           zip: "94103"
         },
         %{
@@ -114,7 +113,7 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
           phone: "(415) 222-9670",
           city: "San Francisco",
           state: "CA",
-          street1: "1355 MARKET STREET, SUITE 900",
+          street: "1355 MARKET STREET, SUITE 900",
           zip: "94103"
         }
       ]
