@@ -1,6 +1,6 @@
 # SecCompanyFilingsRssFeedParser
 
-[![Circle CI](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser.svg?style=svg)](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser)
+[![Circle CI](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser.svg?style=svg)](https://circleci.com/gh/vikram7/sec_company_filings_rss_feed_parser) [![HEX version](https://img.shields.io/hexpm/v/sec_company_filings_rss_feed_parser.png)](https://hex.pm/packages/sec_company_filings_rss_feed_parser)
 
 ## Installation
 
