@@ -32,10 +32,8 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
   end
 
   defp parse_title(feed) do
-    feed
-    |> Floki.find("title")
-    |> hd
-    |> extract_last_item
+    {_, _, [title]} = feed |> Floki.find("title") |> tl |> tl |> hd
+    title
   end
 
   defp parse_author_name(feed) do

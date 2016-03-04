@@ -125,7 +125,7 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   end
 
   defp parse_accession_nunber(xml) do
-    xml 
+    xml
     |> Floki.find("accession-nunber")
     |> hd
     |> extract_last_item
