@@ -29,16 +29,20 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
   end
 
   defp parse_updated(feed) do
-    {_, _, date} = feed 
-    |> Floki.find("updated") 
-    |> tl
-    |> tl
-    |> hd
-    date |> hd
+    {_, _, [date]} =
+    feed
+    |> Floki.find("updated")
+    |> List.last
+
+    date
   end
 
   defp parse_title(feed) do
-    {_, _, [title]} = feed |> Floki.find("title") |> tl |> tl |> hd
+    {_, _, [title]} =
+    feed |>
+    Floki.find("title")
+    |> List.last
+
     title
   end
 

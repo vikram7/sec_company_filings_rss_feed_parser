@@ -170,4 +170,11 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
       }
     }
   end
+
+  test "parse/1 on entire xml file works" do
+    feed_xml = File.read!("test/fixtures/company_filings_rss_feed.xml")
+    feed = feed_xml |> SecCompanyFilingsRssFeedParser.Feed.parse
+    assert feed.updated == "2016-03-03T18:20:09-05:00"
+    assert feed.title == "TWITTER, INC.  (0001418091)"
+  end
 end
