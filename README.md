@@ -4,7 +4,7 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+This project is [available in Hex](https://hex.pm/docs/publish) and the package can be installed as:
 
   1. Add sec_company_filings_rss_feed_parser to your list of dependencies in `mix.exs`:
 
