@@ -17,7 +17,7 @@ defmodule SecCompanyFilingsRssFeedParser.Mixfile do
   end
 
   defp deps do
-    [{:floki, "~> 0.7.1"}]
+    [{:floki, "~> 0.8"}]
   end
 
   defp description do
