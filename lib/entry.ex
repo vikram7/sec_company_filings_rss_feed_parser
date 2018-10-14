@@ -10,6 +10,8 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   parse/1 takes an xml entry and parses it and returns a map of entry
   """
 
+  use ParseUtility
+
   def parse(xml) do
     %{
       updated: parse_updated(xml),
@@ -30,42 +32,22 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
     }
   end
 
-  def extract_last_item(tuple) do
-    {_, _, item} = tuple
-    item |> hd
-  end
-
   defp parse_updated(xml) do
-    updated = xml
+    xml
     |> Floki.find("updated")
-
-    if updated == [] do
-      nil
-    else
-      updated |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_form_name(xml) do
-    form_name = xml
+    xml
     |> Floki.find("form-name")
-
-    if form_name == [] do
-      nil
-    else
-      form_name |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_title(xml) do
-    title = xml
+    xml
     |> Floki.find("title")
-
-    if title == [] do
-      nil
-    else
-      title |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_summary(xml) do
@@ -80,14 +62,9 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   end
 
   defp parse_rss_feed_id(xml) do
-    rss_feed_id = xml
+    xml
     |> Floki.find("id")
-
-    if rss_feed_id == [] do
-      nil
-    else
-      rss_feed_id |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_size(xml) do
@@ -99,47 +76,27 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   end
 
   defp parse_film_number(xml) do
-    film_number = xml
+    xml
     |> Floki.find("film-number")
-
-    if film_number == [] do
-      nil
-    else
-      film_number |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_filing_type(xml) do
-    filing_type = xml
+    xml
     |> Floki.find("filing-type")
-
-    if filing_type == [] do
-      nil
-    else
-      filing_type |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_filing_date(xml) do
-    filing_date = xml
+    xml
     |> Floki.find("filing-date")
-
-    if filing_date == [] do
-      nil
-    else
-      filing_date |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_file_name_href(xml) do
-    file_name = xml
+    xml
     |> Floki.find("file-number-href")
-
-    if file_name == [] do
-      nil
-    else
-      file_name |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_category_term(xml) do
@@ -155,35 +112,20 @@ defmodule SecCompanyFilingsRssFeedParser.Entry do
   end
 
   defp parse_accession_nunber(xml) do
-    accession_nunber = xml
+    xml
     |> Floki.find("accession-nunber")
-
-    if accession_nunber == [] do
-      nil
-    else
-      accession_nunber |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_act(xml) do
-    act = xml
+    xml
     |> Floki.find("act")
-
-    if act == [] do
-      nil
-    else
-      act |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 
   defp parse_file_number(xml) do
-    file_number = xml
+    xml
     |> Floki.find("file-number")
-
-    if file_number == [] do
-      nil
-    else
-      file_number |> hd |> extract_last_item
-    end
+    |> extract_last_item()
   end
 end

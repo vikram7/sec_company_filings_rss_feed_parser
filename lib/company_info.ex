@@ -1,4 +1,7 @@
 defmodule SecCompanyFilingsRssFeedParser.CompanyInfo do
+  @moduledoc false
+
+  use ParseUtility
 
   def parse(xml) do
     %{
@@ -17,85 +20,69 @@ defmodule SecCompanyFilingsRssFeedParser.CompanyInfo do
     }
   end
 
-  def extract_last_item(tuple) do
-    {_, _, item} = tuple
-    item |> hd
-  end
-
   defp parse_assigned_sic(xml) do
     xml
     |> Floki.find("assigned-sic")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_assigned_sic_desc(xml) do
     xml
     |> Floki.find("assigned-sic-desc")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_assigned_sic_href(xml) do
     xml
     |> Floki.find("assigned-sic-href")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_assitant_director(xml) do
     xml
     |> Floki.find("assitant-director")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_cik(xml) do
     xml
     |> Floki.find("cik")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_cik_href(xml) do
     xml
     |> Floki.find("cik-href")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_conformed_name(xml) do
     xml
     |> Floki.find("conformed-name")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_fiscal_year_end(xml) do
     xml
     |> Floki.find("fiscal-year-end")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_state_location(xml) do
     xml
     |> Floki.find("state-location")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_state_location_href(xml) do
     xml
     |> Floki.find("state-location-href")
-    |> hd
     |> extract_last_item
   end
 
   defp parse_state_of_incorporation(xml) do
     xml
     |> Floki.find("state-of-incorporation")
-    |> hd
     |> extract_last_item
   end
 
@@ -131,4 +118,3 @@ defmodule SecCompanyFilingsRssFeedParser.CompanyInfo do
     ]
   end
 end
-
