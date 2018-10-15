@@ -1,4 +1,9 @@
 defmodule SecCompanyFilingsRssFeedParser.Feed do
+  @moduledoc false
+
+  use ParseUtility
+
+  alias SecCompanyFilingsRssFeedParser.{CompanyInfo, Entry}
 
   def parse(xml) do
     %{
@@ -11,21 +16,17 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
     }
   end
 
-  def extract_last_item(tuple) do
-    {_, _, item} = tuple
-    item |> hd
-  end
-
   defp parse_entries(xml) do
-    Floki.find(xml, "entry")
-    |> Enum.map(fn entry -> SecCompanyFilingsRssFeedParser.Entry.parse(Floki.raw_html(entry)) end)
+    xml
+    |> Floki.find("entry")
+    |> Enum.map(fn entry -> Entry.parse(Floki.raw_html(entry)) end)
   end
 
   defp parse_company_info(xml) do
     xml
     |> Floki.find("company-info")
     |> Floki.raw_html
-    |> SecCompanyFilingsRssFeedParser.CompanyInfo.parse
+    |> CompanyInfo.parse
   end
 
   defp parse_updated(feed) do
@@ -39,20 +40,22 @@ defmodule SecCompanyFilingsRssFeedParser.Feed do
 
   defp parse_title(feed) do
     {_, _, [title]} =
-    feed |>
-    Floki.find("title")
+    feed
+    |> Floki.find("title")
     |> List.last
 
     title
   end
 
   defp parse_author_name(feed) do
-    feed |> Floki.find("author name") |> hd
-    |> extract_last_item
+    feed
+    |> Floki.find("author name")
+    |> extract_last_item()
   end
 
   defp parse_author_email(feed) do
-    feed |> Floki.find("author email") |> hd
-    |> extract_last_item
+    feed
+    |> Floki.find("author email")
+    |> extract_last_item()
   end
 end

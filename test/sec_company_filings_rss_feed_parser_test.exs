@@ -15,6 +15,6 @@ defmodule SecCompanyFilingsRssFeedParserTest do
 
   test "has an entry" do
     {:ok, xml} = File.read("test/fixtures/company_filings_rss_feed.xml")
-    {:ok, feed} = xml |> parse
+    {:ok, _feed} = xml |> parse
   end
 end

@@ -1,6 +1,8 @@
 defmodule SecCompanyFilingsRssFeedParserFeedTest do
   use ExUnit.Case
 
+  alias SecCompanyFilingsRssFeedParser.Feed
+
   def feed_xml do
     """
     <?xml version="1.0" encoding="ISO-8859-1" ?>
@@ -95,7 +97,7 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
   end
 
   test "parse/1" do
-    feed = feed_xml |> SecCompanyFilingsRssFeedParser.Feed.parse
+    feed = feed_xml() |> Feed.parse
 
     assert feed == %{
       updated: "2016-03-03T18:20:09-05:00",
@@ -126,7 +128,7 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
             act: "34",
             category_term: "10-K",
             file_number: "001-36164",
-            file_number_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&filenum=001-36164&owner=exclude&count=40", 
+            file_number_href: "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&filenum=001-36164&owner=exclude&count=40",
             filing_date: "2016-02-29",
             filing_type: "10-K",
             film_number: "161464790",
@@ -173,7 +175,7 @@ defmodule SecCompanyFilingsRssFeedParserFeedTest do
 
   test "parse/1 on entire xml file works" do
     feed_xml = File.read!("test/fixtures/company_filings_rss_feed.xml")
-    feed = feed_xml |> SecCompanyFilingsRssFeedParser.Feed.parse
+    feed = feed_xml |> Feed.parse
     assert feed.updated == "2016-03-03T18:20:09-05:00"
     assert feed.title == "TWITTER, INC.  (0001418091)"
   end

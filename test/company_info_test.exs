@@ -43,62 +43,62 @@ defmodule SecCompanyFilingsRssFeedParserCompanyInfoTest do
   end
 
   test "parses assigned-sic" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.assigned_sic == "7370"
   end
 
   test "parses assigned-sic-desc" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.assigned_sic_desc == "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC."
   end
 
   test "parses assigned-sic-href" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.assigned_sic_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=7370&owner=exclude&count=40"
   end
 
   test "parses assitant director" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.assitant_director == "3"
   end
 
   test "parses cik" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.cik == "0001418091"
   end
 
   test "parses cik-href" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.cik_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001418091&owner=exclude&count=40"
   end
 
   test "parses conformed-name" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.conformed_name == "TWITTER, INC."
   end
 
   test "parses fiscal-year-end" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.fiscal_year_end == "1231"
   end
 
   test "parses state-location" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.state_location == "CA"
   end
 
   test "parses state-location-href" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.state_location_href == "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&State=CA&owner=exclude&count=40"
   end
 
   test "parses state-of-incorporation" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.state_of_incorporation == "DE"
   end
 
   test "parses addresses" do
-    company_info = company_info_xml |> parse
+    company_info = company_info_xml() |> parse
     assert company_info.addresses ==
       [
         %{

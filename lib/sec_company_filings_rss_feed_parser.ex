@@ -4,8 +4,10 @@ defmodule SecCompanyFilingsRssFeedParser do
   handles errors if there are issues generating it
   """
 
+  alias SecCompanyFilingsRssFeedParser.Feed
+
   def parse(xml) do
-    {:ok, SecCompanyFilingsRssFeedParser.Feed.parse(xml)}
+    {:ok, Feed.parse(xml)}
   catch
     :exit, _ -> {:error, "expected element start tag"}
   end
